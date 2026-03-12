@@ -378,15 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.target.classList.contains('skill-bar-fill')) {
           const width = entry.target.getAttribute('data-width');
           entry.target.style.width = width + '%';
-          
-          // Animate the percentage text
-          const skillItem = entry.target.closest('.skill-bar-item');
-          if (skillItem) {
-            const percentEl = skillItem.querySelector('.skill-percent');
-            if (percentEl) {
-              animateValue(percentEl, 0, parseInt(width, 10), 1600, '%');
-            }
-          }
         }
 
         // Numbers
