@@ -126,24 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeWriter, 900);
   }
 
-  // ===== COUNTER ANIMATION =====
-  function animateCounter(el) {
-    if (el.dataset.animated) return;
-    el.dataset.animated = 'true';
-    
-    const target   = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 2200;
-    const startTime = performance.now();
 
-    function step(now) {
-      const elapsed  = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
 
   // ===== PROJECT FILTERING =====
   const filterBtns   = document.querySelectorAll('.filter-btn');
@@ -393,18 +376,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Skill bars
         if (entry.target.classList.contains('skill-bar-fill')) {
-          entry.target.style.width = entry.target.getAttribute('data-width') + '%';
+          const width = entry.target.getAttribute('data-width');
+          entry.target.style.width = width + '%';
+          
+          // Animate the percentage text
+          const skillItem = entry.target.closest('.skill-bar-item');
+          if (skillItem) {
+            const percentEl = skillItem.querySelector('.skill-percent');
+            if (percentEl) {
+              animateValue(percentEl, 0, parseInt(width, 10), 1600, '%');
+            }
+          }
         }
 
         // Numbers
         if (entry.target.classList.contains('stat-number')) {
-          animateCounter(entry.target);
+          const target = parseInt(entry.target.getAttribute('data-target'), 10);
+          animateValue(entry.target, 0, target, 2200);
         }
 
         revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  // Helper to animate values
+  function animateValue(el, start, end, duration, suffix = '') {
+    if (el.dataset.animated === 'true') return;
+    el.dataset.animated = 'true';
+    
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+      el.innerText = Math.floor(eased * (end - start) + start) + suffix;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   document.querySelectorAll('.skill-bar-fill').forEach(el => revealObserver.observe(el));
