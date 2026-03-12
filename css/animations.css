@@ -1,0 +1,278 @@
+/* ===================================================
+   BIRAJ OLI PORTFOLIO — ANIMATIONS v2
+   =================================================== */
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(50px, -40px) scale(1.06); }
+  66%       { transform: translate(-30px, 25px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-40px, -50px) scale(1.1); }
+  66%       { transform: translate(25px, 30px) scale(0.92); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%       { transform: translate(-50%, -50%) scale(1.25); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+  50%       { transform: scale(1.12); opacity: 0.8; box-shadow: 0 0 0 8px transparent; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50%       { transform: translateX(-50%) translateY(14px); opacity: 0.3; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(167,139,250,0.2); }
+  50%       { box-shadow: 0 0 50px rgba(167,139,250,0.5); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(167,139,250,0.1); }
+  50%       { border-color: rgba(251,191,36,0.3); }
+}
+
+/* ===== SCROLL REVEAL CLASSES ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.reveal-left {
+  transform: translateX(-48px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(48px);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Stagger delays for grid children */
+.projects-grid .project-card:nth-child(1) { transition-delay: 0s; }
+.projects-grid .project-card:nth-child(2) { transition-delay: 0.1s; }
+.projects-grid .project-card:nth-child(3) { transition-delay: 0.2s; }
+.projects-grid .project-card:nth-child(4) { transition-delay: 0.1s; }
+.projects-grid .project-card:nth-child(5) { transition-delay: 0.2s; }
+.projects-grid .project-card:nth-child(6) { transition-delay: 0.3s; }
+
+.blog-grid .blog-card:nth-child(1) { transition-delay: 0s; }
+.blog-grid .blog-card:nth-child(2) { transition-delay: 0.12s; }
+.blog-grid .blog-card:nth-child(3) { transition-delay: 0.24s; }
+
+.tech-grid .tech-chip:nth-child(1) { transition-delay: 0.04s; }
+.tech-grid .tech-chip:nth-child(2) { transition-delay: 0.08s; }
+.tech-grid .tech-chip:nth-child(3) { transition-delay: 0.12s; }
+.tech-grid .tech-chip:nth-child(4) { transition-delay: 0.16s; }
+.tech-grid .tech-chip:nth-child(5) { transition-delay: 0.20s; }
+.tech-grid .tech-chip:nth-child(6) { transition-delay: 0.24s; }
+.tech-grid .tech-chip:nth-child(7) { transition-delay: 0.28s; }
+.tech-grid .tech-chip:nth-child(8) { transition-delay: 0.32s; }
+
+/* ===== HERO GRADIENT ANIMATED BG ===== */
+.hero {
+  background: linear-gradient(135deg, #0d0a1a, #1a0f33, #0d1a2a, #0d0a1a);
+  background-size: 300% 300%;
+  animation: gradientShift 14s ease infinite;
+}
+
+/* ===== NAV LINK UNDERLINE ANIMATION ===== */
+.nav-link { position: relative; }
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: calc(100% - 28px);
+  left: 14px;
+}
+
+/* ===== BUTTON SHINE EFFECT ===== */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -70%;
+  width: 35%;
+  height: 220%;
+  background: rgba(255,255,255,0.2);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+}
+
+.btn-primary:hover::after { left: 130%; }
+
+/* ===== GRADIENT TEXT ANIMATION ===== */
+.gradient-text {
+  animation: gradientShift 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* ===== HERO AVATAR GLOW ===== */
+.hero-avatar {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ===== PROJECT CARD TILT SETUP ===== */
+.project-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card.visible {
+  animation: fadeInUp 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ===== TECH CHIP ENTRANCE ===== */
+.tech-chip {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tech-chip:hover {
+  transform: translateY(-7px) scale(1.05);
+}
+
+/* ===== TESTIMONIAL CARD EFFECT ===== */
+.testimonial-card {
+  animation: fadeIn 0.5s ease;
+}
+
+/* ===== CURSOR GLOW EFFECT ===== */
+.cursor-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(167,139,250,0.05) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease, top 0.15s ease;
+  mix-blend-mode: screen;
+}
+
+/* ===== SECTION DECORATIVE LINES ===== */
+.section::before { content: none; }
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.18), transparent);
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+}
+
+/* ===== FLOATING ORBS EXTRA ===== */
+.orb-4 {
+  width: 250px; height: 250px;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.3;
+  background: radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%);
+  animation: orbFloat2 22s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* ===== PREFERS-REDUCED-MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
