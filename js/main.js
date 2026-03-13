@@ -65,21 +65,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], header[id]');
     const scrollPos = window.scrollY + 120;
+
+    let highestId = null;
 
     sections.forEach(section => {
       const top    = section.offsetTop;
       const height = section.offsetHeight;
-      const id     = section.getAttribute('id');
-      const link   = document.querySelector(`.nav-link[href="#${id}"]`);
-      if (!link) return;
-
       if (scrollPos >= top && scrollPos < top + height) {
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
+        highestId = section.getAttribute('id');
       }
     });
+
+    if (highestId) {
+      const link = document.querySelector(`.nav-link[href="#${highestId}"]`);
+      if (link) {
+        document.querySelectorAll('.nav-link').forEach(l => {
+          if (l.getAttribute('href').startsWith('#')) {
+             l.classList.remove('active');
+          }
+        });
+        link.classList.add('active');
+      }
+    }
   }
 
   // ===== TYPEWRITER EFFECT =====
@@ -377,13 +386,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Skill bars
         if (entry.target.classList.contains('skill-bar-fill')) {
           const width = entry.target.getAttribute('data-width');
-          entry.target.style.width = width + '%';
+          if (width) entry.target.style.width = width + '%';
         }
 
         // Numbers
         if (entry.target.classList.contains('stat-number')) {
-          const target = parseInt(entry.target.getAttribute('data-target'), 10);
-          animateValue(entry.target, 0, target, 2200);
+          const targetRaw = entry.target.getAttribute('data-target');
+          if (targetRaw) {
+            const target = parseInt(targetRaw, 10);
+            if (!isNaN(target)) animateValue(entry.target, 0, target, 2200);
+          }
         }
 
         revealObserver.unobserve(entry.target);
