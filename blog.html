@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Blog by Biraj Oli — Thoughts & Ideas on Software Engineering and Design." />
+  <title>Blog — Biraj Oli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Biraj<span class="logo-accent">Oli</span><span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="section" style="padding-top: 150px; padding-bottom: 40px; text-align: center;">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Snippets & Stories</span>
+        <h1 class="section-title">Thoughts & <span class="gradient-text">Ideas</span></h1>
+        <p class="section-desc">Writing down my experiences on algorithms, system design, creative CSS, and everything in-between.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ARCHIVE ===== -->
+  <section class="blog section" style="padding-top: 20px;">
+    <div class="container">
+      
+      <!-- Featured Post (Spans 2 columns usually or creates a wide block) -->
+      <article class="glass reveal" style="display: flex; flex-direction: column; border-radius: var(--radius-lg); margin-bottom: 60px; overflow: hidden;">
+        <div style="height: 350px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); position: relative;">
+          <!-- Placeholder visual for the featured image -->
+          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 5rem; opacity: 0.2;">🚀</div>
+          <div style="position: absolute; top: 20px; left: 20px;">
+            <span class="blog-category" style="background: var(--accent); color: #000; padding: 6px 14px; border-radius: 100px; font-weight: 700; font-size: 0.8rem;">Featured · Architecture</span>
+          </div>
+        </div>
+        <div style="padding: 40px;">
+          <div class="blog-meta" style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">
+            <span class="blog-date">March 12, 2026</span>
+            <span style="margin: 0 10px;">•</span>
+            <span class="blog-read">15 min read</span>
+          </div>
+          <h2 style="font-size: 2.2rem; margin-bottom: 20px; line-height: 1.2;">The Great Migration: Breaking down the monolith step-by-step.</h2>
+          <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; margin-bottom: 30px; max-width: 900px;">
+            Refactoring legacy enterprise codebases into microservices is rarely straightforward. In this extensive guide, I map out the strategies my team utilized to decouple a massive e-commerce monolith into serverless components utilizing AWS EventBridge and Docker over typical REST architectures. We cover data decoupling boundaries, event stream failures, and more.
+          </p>
+          <a href="#" class="btn btn-primary">Read the full story <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+        </div>
+      </article>
+
+      <div class="section-header reveal" style="text-align: left; margin-bottom: 40px;">
+        <h2 style="font-size: 1.8rem;">All Articles</h2>
+      </div>
+
+      <div class="blog-grid" style="row-gap: 50px;">
+
+        <!-- Blog Post 1 -->
+        <article class="blog-card glass reveal">
+          <div class="blog-img blog-img-1">
+            <span class="blog-category">Performance</span>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">March 5, 2026</span>
+              <span class="blog-read">8 min read</span>
+            </div>
+            <h3 class="blog-title">Optimizing React Apps for Sub-Second Load Times</h3>
+            <p class="blog-excerpt">Deep-dive into advanced code splitting, lazy loading patterns, and bundle
+              optimization techniques that make React apps blazing fast.</p>
+            <a href="#" class="blog-link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card glass reveal">
+          <div class="blog-img blog-img-2">
+            <span class="blog-category">Architecture</span>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">February 18, 2026</span>
+              <span class="blog-read">12 min read</span>
+            </div>
+            <h3 class="blog-title">Building Scalable APIs with Node.js Microservices</h3>
+            <p class="blog-excerpt">A practical guide to designing microservice architectures that can handle millions
+              of requests with zero downtime deployments.</p>
+            <a href="#" class="blog-link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-card glass reveal">
+          <div class="blog-img blog-img-3">
+            <span class="blog-category">Design</span>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">January 30, 2026</span>
+              <span class="blog-read">6 min read</span>
+            </div>
+            <h3 class="blog-title">The Art of Glassmorphism: CSS Techniques for 2026</h3>
+            <p class="blog-excerpt">Exploring advanced CSS techniques to create stunning glassmorphism effects that
+              balance aesthetics with accessibility and performance.</p>
+            <a href="#" class="blog-link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 4 -->
+        <article class="blog-card glass reveal">
+          <div class="blog-img" style="background: linear-gradient(135deg, #10b981, #065f46); position: relative; height: 220px; overflow: hidden; border-radius: var(--radius-sm) var(--radius-sm) 0 0; display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 3rem;">📦</div>
+            <span class="blog-category" style="position: absolute; top: 16px; left: 16px; background: rgba(13, 10, 26, 0.7); backdrop-filter: blur(10px); color: var(--text-primary); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid rgba(255, 255, 255, 0.1);">Tooling</span>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">December 15, 2025</span>
+              <span class="blog-read">5 min read</span>
+            </div>
+            <h3 class="blog-title">Moving from Webpack to Vite</h3>
+            <p class="blog-excerpt">Tired of a 4-minute build step? Here is how and why you should migrate your tooling to Vite to drastically improve developer experience.</p>
+            <a href="#" class="blog-link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 5 -->
+        <article class="blog-card glass reveal">
+          <div class="blog-img" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); position: relative; height: 220px; overflow: hidden; border-radius: var(--radius-sm) var(--radius-sm) 0 0; display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 3rem;">🔄</div>
+            <span class="blog-category" style="position: absolute; top: 16px; left: 16px; background: rgba(13, 10, 26, 0.7); backdrop-filter: blur(10px); color: var(--text-primary); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid rgba(255, 255, 255, 0.1);">State</span>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">November 02, 2025</span>
+              <span class="blog-read">10 min read</span>
+            </div>
+            <h3 class="blog-title">Zustand vs Redux Toolkit</h3>
+            <p class="blog-excerpt">An objective look at state management in 2026. Do you really need the boilerplate of Redux, or is a simpler store pattern enough?</p>
+            <a href="#" class="blog-link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 6 -->
+        <article class="blog-card glass reveal">
+          <div class="blog-img" style="background: linear-gradient(135deg, #f59e0b, #b45309); position: relative; height: 220px; overflow: hidden; border-radius: var(--radius-sm) var(--radius-sm) 0 0; display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 3rem;">🐍</div>
+            <span class="blog-category" style="position: absolute; top: 16px; left: 16px; background: rgba(13, 10, 26, 0.7); backdrop-filter: blur(10px); color: var(--text-primary); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid rgba(255, 255, 255, 0.1);">Backend</span>
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-date">October 18, 2025</span>
+              <span class="blog-read">7 min read</span>
+            </div>
+            <h3 class="blog-title">Django ORM Advanced Queries</h3>
+            <p class="blog-excerpt">Skip the N+1 problem. Learn how to use prefetch_related and annotate properly to slice database workloads by over 80%.</p>
+            <a href="#" class="blog-link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="section" style="background: var(--bg-2); text-align: center;">
+    <div class="container">
+      <div class="glass reveal" style="padding: 60px 30px; border-radius: var(--radius-lg); max-width: 700px; margin: 0 auto;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Never Miss An <span class="gradient-text">Update</span></h2>
+        <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 30px;">I send an occasional email outlining my newest articles, experiments, and tech essays. No spam, ever.</p>
+        <form style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 500px; margin: 0 auto;">
+          <input type="email" placeholder="example@email.com" required style="flex-grow: 1; min-width: 250px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 12px 20px; color: #fff; outline: none; transition: border-color 0.3s; font-family: var(--font-main);" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+          <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); this.innerHTML='Subscribed! 🎉'; this.style.background='#4ade80'; this.style.color='#000';">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>Biraj<span class="logo-accent">Oli</span><span class="logo-bracket">
+              /&gt;</span>
+          </a>
+          <p class="footer-tagline">Building the web, one pixel at a time.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#contact">Web Development</a></li>
+            <li><a href="index.html#contact">Mobile Apps</a></li>
+            <li><a href="index.html#contact">UI/UX Design</a></li>
+            <li><a href="index.html#contact">Consulting</a></li>
+            <li><a href="index.html#contact">Code Review</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter / X</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Dev.to</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Biraj Oli. Crafted with ❤️ and ☕.</p>
+        <p class="footer-built">Built with vanilla HTML, CSS & JS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
