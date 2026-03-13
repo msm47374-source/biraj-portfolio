@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Skills and Expertise of Biraj Oli — Full Stack Developer & UI/UX Enthusiast." />
+  <title>Skills — Biraj Oli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    /* Super Animations for Skills Page */
+    .skills-hero {
+      position: relative;
+      height: 40vh;
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+    
+    .galaxy-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, var(--primary-light) 0%, var(--bg) 70%);
+      z-index: 0;
+    }
+    
+    .galaxy-grid {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: 
+        linear-gradient(rgba(167, 139, 250, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167, 139, 250, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      transform: rotateX(60deg);
+      animation: gridMove 20s linear infinite;
+      z-index: 1;
+    }
+    
+    @keyframes gridMove {
+      0% { transform: rotateX(60deg) translateY(0); }
+      100% { transform: rotateX(60deg) translateY(50px); }
+    }
+
+    .skill-universe {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 60px 0;
+    }
+
+    /* 3D Skill Cards */
+    .super-card {
+      position: relative;
+      background: rgba(20, 15, 40, 0.6);
+      border-radius: var(--radius-lg);
+      padding: 40px 30px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+      z-index: 2;
+    }
+
+    .super-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(45deg, var(--accent), transparent, var(--secondary), transparent);
+      z-index: -1;
+      border-radius: inherit;
+      background-size: 300% 300%;
+      animation: borderDance 5s linear infinite;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    @keyframes borderDance {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .super-card:hover {
+      transform: translateY(-15px) rotateX(10deg) rotateY(-5deg);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(167, 139, 250, 0.3);
+    }
+    
+    .super-card:hover::before {
+      opacity: 1;
+    }
+
+    .super-icon {
+      font-size: 3.5rem;
+      margin-bottom: 25px;
+      display: inline-block;
+      position: relative;
+      animation: floatIcon 4s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.4)); }
+      50% { transform: translateY(-15px) scale(1.1); filter: drop-shadow(0 15px 25px rgba(251, 191, 36, 0.8)); }
+    }
+
+    /* Progress Ring Animation */
+    .skill-level {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 25px;
+    }
+
+    .level-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .level-dot.filled::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-primary);
+      transform: scale(0);
+      animation: popInDot 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes popInDot {
+      to { transform: scale(1); }
+    }
+
+    /* Staggered dots */
+    .level-dot:nth-child(1)::after { animation-delay: 0.1s; }
+    .level-dot:nth-child(2)::after { animation-delay: 0.2s; }
+    .level-dot:nth-child(3)::after { animation-delay: 0.3s; }
+    .level-dot:nth-child(4)::after { animation-delay: 0.4s; }
+    .level-dot:nth-child(5)::after { animation-delay: 0.5s; }
+
+    /* Animated Tech List */
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 50px;
+    }
+
+    .super-badge {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      position: relative;
+      overflow: hidden;
+      cursor: crosshair;
+      transition: all 0.3s ease;
+    }
+
+    .super-badge::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: var(--accent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .super-badge:hover {
+      color: #000;
+      border-color: var(--accent);
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3);
+    }
+
+    .super-badge:hover::before {
+      width: 200px;
+      height: 200px;
+      opacity: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Biraj<span class="logo-accent">Oli</span><span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="skills.html" class="nav-link active">Skills</a></li>
+        <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="skills-hero" style="margin-top: 70px;">
+    <div class="galaxy-bg"></div>
+    <div class="galaxy-grid"></div>
+    <div class="container" style="position: relative; z-index: 10; text-align: center;">
+      <span class="section-tag reveal" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">My Arsenal</span>
+      <h1 class="hero-title reveal" style="font-size: clamp(3rem, 6vw, 5rem); animation-delay: 0.1s;">
+        The <span class="gradient-text">Skillset</span> Universe
+      </h1>
+      <p class="hero-description reveal" style="margin: 0 auto; animation-delay: 0.2s;">
+        Hover over the tech stacks to see the magic. Everything modern, everything performant.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== SKILLS CONTENT ===== -->
+  <section class="section" style="padding-top: 40px; background: var(--bg);">
+    <div class="container">
+      
+      <div class="skill-universe">
+        
+        <!-- Skill Group 1 -->
+        <div class="super-card reveal">
+          <div class="super-icon" style="color: #61DAFB;">⚛️</div>
+          <h3 class="about-subtitle" style="margin-bottom: 15px;">Frontend Engineering</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Building complex, interactive, and fully responsive user interfaces with modern web frameworks.</p>
+          <div class="skill-level">
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+          </div>
+        </div>
+
+        <!-- Skill Group 2 -->
+        <div class="super-card reveal" style="animation-delay: 0.15s;">
+          <div class="super-icon" style="color: #68A063;">🟢</div>
+          <h3 class="about-subtitle" style="margin-bottom: 15px;">Backend Architecture</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Architecting scalable microservices, RESTful and GraphQL APIs, and robust database models.</p>
+          <div class="skill-level">
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot"></span>
+          </div>
+        </div>
+
+        <!-- Skill Group 3 -->
+        <div class="super-card reveal" style="animation-delay: 0.3s;">
+          <div class="super-icon" style="color: #A259FF;">🎨</div>
+          <h3 class="about-subtitle" style="margin-bottom: 15px;">UI/UX Design</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Bridging the gap between engineering and design. Wireframing, prototyping, and accessibility audits.</p>
+          <div class="skill-level">
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot"></span>
+          </div>
+        </div>
+
+        <!-- Skill Group 4 -->
+        <div class="super-card reveal">
+          <div class="super-icon" style="color: #FF9900;">☁️</div>
+          <h3 class="about-subtitle" style="margin-bottom: 15px;">DevOps & Cloud</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Deploying applications with CI/CD pipelines, Docker containerization, and AWS infrastructure management.</p>
+          <div class="skill-level">
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot"></span>
+            <span class="level-dot"></span>
+          </div>
+        </div>
+
+        <!-- Skill Group 5 -->
+        <div class="super-card reveal" style="animation-delay: 0.15s;">
+          <div class="super-icon" style="color: #02569B;">📱</div>
+          <h3 class="about-subtitle" style="margin-bottom: 15px;">Mobile Development</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Creating cross-platform mobile experiences for iOS and Android using Flutter and React Native.</p>
+          <div class="skill-level">
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot"></span>
+          </div>
+        </div>
+
+        <!-- Skill Group 6 -->
+        <div class="super-card reveal" style="animation-delay: 0.3s;">
+          <div class="super-icon" style="color: #E34F26;">🚀</div>
+          <h3 class="about-subtitle" style="margin-bottom: 15px;">Performance Optimization</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Lighthouse score obsession. Trimming bundle sizes, implementing edge caching, and fine-tuning rendering.</p>
+          <div class="skill-level">
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+            <span class="level-dot filled"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-header reveal" style="margin-top: 60px; margin-bottom: 30px;">
+        <h2 class="section-title">The <span class="gradient-text">Tech</span> Stack</h2>
+      </div>
+
+      <div class="tech-badges reveal">
+        <div class="super-badge">JavaScript (ES6+)</div>
+        <div class="super-badge">TypeScript</div>
+        <div class="super-badge">React.js</div>
+        <div class="super-badge">Next.js</div>
+        <div class="super-badge">Vue.js</div>
+        <div class="super-badge">Node.js</div>
+        <div class="super-badge">Express.js</div>
+        <div class="super-badge">Python</div>
+        <div class="super-badge">Django</div>
+        <div class="super-badge">MongoDB</div>
+        <div class="super-badge">PostgreSQL</div>
+        <div class="super-badge">Redis</div>
+        <div class="super-badge">Docker</div>
+        <div class="super-badge">AWS</div>
+        <div class="super-badge">Firebase</div>
+        <div class="super-badge">Figma</div>
+        <div class="super-badge">TailwindCSS</div>
+        <div class="super-badge">SCSS</div>
+        <div class="super-badge">GraphQL</div>
+        <div class="super-badge">Jest / Cypress</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>Biraj<span class="logo-accent">Oli</span><span class="logo-bracket">
+              /&gt;</span>
+          </a>
+          <p class="footer-tagline">Building the web, one pixel at a time.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#contact">Web Development</a></li>
+            <li><a href="index.html#contact">Mobile Apps</a></li>
+            <li><a href="index.html#contact">UI/UX Design</a></li>
+            <li><a href="index.html#contact">Consulting</a></li>
+            <li><a href="index.html#contact">Code Review</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter / X</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Dev.to</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Biraj Oli. Crafted with ❤️ and ☕.</p>
+        <p class="footer-built">Built with vanilla HTML, CSS & JS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
