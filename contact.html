@@ -51,8 +51,14 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="contact section" style="padding-top: 20px;">
+  <section class="contact section" id="contact">
     <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Build Something <span class="gradient-text">Amazing</span></h2>
+        <p class="section-desc">Have a project in mind? I'd love to hear about it. Let's create something great
+          together.</p>
+      </div>
       <div class="contact-grid">
         <div class="contact-info reveal reveal-left">
           <div class="contact-item">
@@ -81,20 +87,7 @@
               <span class="ci-value">Kathmandu, Nepal 🇳🇵</span>
             </div>
           </div>
-          
-          <div class="contact-item" style="margin-top: 30px; margin-bottom: 10px;">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </div>
-            <div>
-              <span class="ci-label">Phone / WhatsApp</span>
-              <a href="tel:+9779800000000" class="ci-value">+977 980-000-0000</a>
-            </div>
-          </div>
-
-          <div class="contact-social" style="margin-top: 40px;">
+          <div class="contact-social">
             <a href="#" class="social-btn" aria-label="GitHub">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path
@@ -113,6 +106,12 @@
                   d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
           </div>
         </div>
         <div class="contact-form-wrapper reveal reveal-right">
@@ -129,35 +128,15 @@
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+              <input type="email" id="email" name="email" placeholder=".......@example.com" required />
             </div>
-            
             <div class="form-group">
-              <label for="projectType">Service Interested In</label>
-              <select id="projectType" name="projectType" required style="width: 100%; padding: 14px 20px; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--text-primary); outline: none; transition: border-color var(--transition); font-family: inherit; font-size: 0.95rem; appearance: none; cursor: pointer;">
-                <option value="" disabled selected>Select a Service</option>
-                <option value="web" style="background: var(--bg-2);">Web Development</option>
-                <option value="mobile" style="background: var(--bg-2);">Mobile App</option>
-                <option value="design" style="background: var(--bg-2);">UI/UX Design</option>
-                <option value="consulting" style="background: var(--bg-2);">Consulting</option>
-                <option value="other" style="background: var(--bg-2);">Other</option>
-              </select>
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required />
             </div>
-
             <div class="form-group">
-              <label for="subject">Budget Range</label>
-              <select id="budget" name="budget" required style="width: 100%; padding: 14px 20px; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: var(--text-primary); outline: none; transition: border-color var(--transition); font-family: inherit; font-size: 0.95rem; appearance: none; cursor: pointer;">
-                <option value="" disabled selected>Select Budget Range</option>
-                <option value="1k-3k" style="background: var(--bg-2);">$1,000 - $3,000</option>
-                <option value="3k-5k" style="background: var(--bg-2);">$3,000 - $5,000</option>
-                <option value="5k-10k" style="background: var(--bg-2);">$5,000 - $10,000</option>
-                <option value="10k+" style="background: var(--bg-2);">$10,000+</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Project Details</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project timeline, goals, and expectations..."
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
                 required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
